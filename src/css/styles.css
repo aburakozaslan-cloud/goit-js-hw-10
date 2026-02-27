@@ -1,18 +1,319 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+p {
+  padding-left: 100px;
+  padding-bottom: 100px;
+  font-size: 25px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+
+  margin-left: 350px;
+  font-size: 30px;
+  color: #4e75ff;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 250ms ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4e75ff;
+  transition: width 250ms ease;
+}
+
+a:hover {
+  color: #3e5ed9;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding: 100px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.timer {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value {
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.label {
+  text-transform: uppercase;
+  line-height: 24px;
+}
+
+input#datetime-picker {
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input#datetime-picker:hover {
+  border-color: #000000;
+}
+
+input#datetime-picker:focus {
+  border-color: #4e75ff;
+}
+
+button[data-start] {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: background-color 250ms ease;
+}
+
+button[data-start]:hover {
+  background-color: #6c8cff;
+}
+
+button[data-start]:disabled {
+  background-color: #cfcfcf;
+  color: #989898;
+  cursor: not-allowed;
+}
+
+button[data-start]:enabled:active {
+  background-color: #3e5ed9;
+}
+
+.flatpickr-calendar {
+  background-color: #f5f5f5 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  margin-top: 8px !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after,
+.flatpickr-calendar.arrowBottom:before,
+.flatpickr-calendar.arrowBottom:after {
+  display: none !important;
+}
+
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 8px !important;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.flatpickr-month {
+  display: flex !important;
+}
+
+.flatpickr-current-month {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #333333 !important;
+  flex: 1 !important;
+  position: static !important;
+}
+
+.flatpickr-weekdays {
+  margin-top: 24px !important;
+}
+
+.flatpickr-weekday {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #2e2f42 !important;
+}
+
+.flatpickr-day.selected {
+  border: none !important;
+  background-color: #4e75ff !important;
+  color: #fff !important;
+}
+
+.flatpickr-day.selected:hover {
+  background-color: #3e5ed9 !important;
+}
+
+.flatpickr-day:hover {
+  background-color: #c1c1c1 !important;
+}
+
+.flatpickr-time {
+  border-top: 1px solid #c1c1c1 !important;
+  margin-top: 16px !important;
+}
+
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+  color: #c1c1c1 !important;
+}
+
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover {
+  color: #666666 !important;
+}
+
+.flatpickr-time input::selection {
+  background: transparent !important;
+  color: #666666 !important;
+}
+
+.flatpickr-time input::-moz-selection {
+  background: transparent !important;
+  color: #666666 !important;
+}
+
+.iziToast.iziToast-color-red {
+  background: #ef4040 !important;
+  border-radius: 4px !important;
+  border: 2px solid #ffbebe !important;
+}
+
+.iziToast.iziToast-color-red .iziToast-title {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: #fff !important;
+}
+
+.iziToast.iziToast-color-red .iziToast-message {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #fff !important;
+}
+
+.form {
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 360px;
+}
+
+input[type='number'] {
+  min-width: 100%;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 8px;
+}
+
+input:hover {
+  border-color: #000000;
+}
+
+input:focus {
+  border-color: #4e75ff;
+}
+
+fieldset {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+}
+
+fieldset:hover,
+fieldset:focus-within {
+  border-color: #000000;
+}
+
+legend {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0 4px;
+}
+
+button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #6c8cff;
+}
+
+.iziToast-color-green {
+  background: #59a10d !important;
+  border: 2px solid #b5ea7c !important;
+  border-radius: 4px !important;
+}
+
+.iziToast-message {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 16px !important;
+  color: #fff !important;
+}
+
+.iziToast-title {
+  color: #fff !important;
+}
+
+.iziToast > .iziToast-close,
+.iziToast > .iziToast-body .iziToast-icon {
+  filter: brightness(0) invert(1) !important;
+}
